@@ -26,27 +26,34 @@ function board_init(size) {
     }
 }
 
-const sizeBtn = document.querySelector("#sizebtn");
+const slider = document.querySelector("#myRange");
 const colorBtn = document.querySelector("#colorbtn");
 const deleteBtn = document.querySelector("#clear");
 
-sizeBtn.addEventListener('click', () => {
-    do {
-        currSize = prompt("Choose new grid size");
-    } while (currSize < 16 || currSize > 100);
-
-    currSize = currSize;
-    board_init(currSize);
-});
+slider.oninput = function() {
+    let sizeTitle = document.querySelector("#size-title");
+    sizeTitle.textContent = "Grid Size: " + slider.value + ' x ' + slider.value;
+    board_init(slider.value);
+}
 
 colorBtn.addEventListener('click', () => {
-    let red = Math.floor( Math.random() * 100000 )  % 256;
-    let green = Math.floor( Math.random() * 100000 )  % 256;
-    let blue = Math.floor( Math.random() * 100000 )  % 256;
-
-    drawColor = "rgb(" + red + "," + green + "," + blue + ")";
+    if (rainbowMode == true) {
+        colorBtn.textContent = "Rainbow Mode";
+        rainbowMode = false;
+    }
+    else {
+        colorBtn.textContent = "Black Mode";
+        rainbowMode = true;
+    }
 });
 
 deleteBtn.addEventListener('click', () => {
-    board_init(currSize);
+    const squares = document.querySelectorAll(".square");
+
+    squares.forEach(square => {
+        square.style.backgroundColor = "white";
+    });
 });
+
+
+let array = [3,4,5,6,7];

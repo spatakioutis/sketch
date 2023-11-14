@@ -46,14 +46,14 @@ body {
 .options {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 40px;
 }
 
-#sizebtn:hover, #colorbtn:hover, #clear:hover {
+#colorbtn:hover, #clear:hover {
     background-color: rgb(186, 186, 99);
 }
 
-#sizebtn, #colorbtn {
+#colorbtn {
     padding: 0;
     border: 2px solid black;
     border-radius: 10px;
@@ -62,6 +62,18 @@ body {
     background-color: rgb(255, 255, 136);
     font-weight: bold;
     font-size: 15px;
+}
+
+.slidecontainer {
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+}
+
+#size-title {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
 }
 
 #clear {
